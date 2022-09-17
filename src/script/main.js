@@ -25,31 +25,36 @@ function segundoAMilisegundos(segundos){
 }
 
 // ANIMACIONES 
+const resorte = document.getElementById('resorte');
 function moverresorte(position){
     console.log(position);
-    var tamano = 200; // los pixeles
-    const resorte = document.getElementById('resorte');
+    var tamano = 200; // los pixeles  
 
     var repetidorAnimation = setInterval(animation,10);
     var index = 0;
+
+    var aumento = parseFloat(position[index]) + 10;
+    var diminucion = -(parseFloat(position[index]) + 10);
+
+    console.log("aumento: ",aumento);
+    console.log("disminucion: ",diminucion);
 
     function animation(){  
         if (position[index] == null) {
             clearInterval(repetidorAnimation);
         }
 
-        if(position[index] > 0){
+        if(position[index] > 0.0001){
+            tamano += parseFloat(position[index]) *3;
             resorte.style.width = tamano + "px";
-            tamano+= parseFloat(position[index]) + 10 ;
         }
 
-
-
-
-        if (position[index] < 0) {
+        if (position[index] < 0.0001) {
+            tamano -= -(parseFloat(position[index]) *3);
             resorte.style.width = tamano + "px";
-            tamano-= parseFloat(position[index]) - 10;
         }
+        
+        console.log(tamano)
 
         index++;
     }
