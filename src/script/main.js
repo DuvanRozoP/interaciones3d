@@ -19,18 +19,20 @@ function moverresorte(){
     }
 }
 //la posision y eso
-var amplitud=1
-var gamma=1
+var amplitud=10
+var gamma=-0.01
 var omega=2
-var t
-var posision
+
+
 function obtenerpocion(t){
-    posision=amplitud*Math.exp(gamma*t)*Math.cos(omega*t)
+
+    return amplitud*Math.exp(gamma*t)*Math.cos(omega*t)
+
 }
-for(t=0;t<10;t++){
+for(var t=0; t<100; t+=0.1){
     
-obtenerpocion()
-    console.log(posision)
+ console.log(obtenerpocion(t))
+    
 }
 //end
 function segundoAMilisegundos(segundos){
