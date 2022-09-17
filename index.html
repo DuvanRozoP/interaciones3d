@@ -5,8 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>modelo3d</title>
+
+    <link rel="stylesheet" href="./src/css/styles.css">
   </head>
   <body>
+
+    <section class="contenedor-masaResorte">
+      <div class="tripode" > tripode </div>
+      <div class="resorte" > resorte </div>
+      <div class="masa"    > masa </div>
+    </section>
+
+    <section class="contenedor-datos">
+      <input placeholder="W" class="input_w" type="text">
+      <input placeholder="Gama" class="input_gama" type="text">
+      <input placeholder="Fuerza Externa" class="input_fExterna" type="text">
+      <input placeholder="Frecuencia de la Fuerza" class="input_FrecuenciaF" type="text">
+    </section>
+
+    <section class="contenedor-datos" >
+      <p class="w"></p>
+      <p class="gama"></p>
+      <p class="fExterna"></p>
+      <p class="FrecuenciaF"></p>
+    </section>
+
+    <button class="start"> Start </button>
+
     <script src="./src/script/three.js"></script>
     <script src="./src/script/main.js"></script>
   </body>
