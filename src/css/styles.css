@@ -1,6 +1,8 @@
 
 
 .contenedor-masaResorte{
+    width: 600px;
+
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -22,7 +24,7 @@
 
 .resorte{
     height: 50px;
-    width: auto;
+    width: 200px;
 
     display: flex;
     align-items: center;

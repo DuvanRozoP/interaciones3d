@@ -1,19 +1,21 @@
-
-function resorteMovie(){
-
-    let timing = 10;
-    const elementresrte = document.getElementById('resorte')
-
-    let id = setInterval(frame,10);
+// OPERACIONES
 
 
-    function frame(){
-        if(timing == 500){
-            timing = 10;
-        }else{
-            timing++;
-            elementresrte.style.width = timing+"px";
-        }   
+
+// ANIMACIONES 
+function moverresorte(){
+    var tamano = 100; // los pixeles
+    const resorte = document.getElementById('resorte');
+
+    // funcion , milisegundos
+    var repetidorAnimation = setInterval(animation,16);
+    function animation(){
+        if (tamano > 800){
+            clearInterval(repetidorAnimation);
+        }
+
+        resorte.style.width = tamano + "px";
+        tamano++;
     }
 }
 
