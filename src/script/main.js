@@ -1,22 +1,23 @@
-const elementoResorte = document.querySelector(".resorte");
 
-function animationResorte(){
-    const animation = elementoResorte.animate([
-        // Keyframes
-        { trasnform:  "scaleX(110%)"}
-    ],{
-        // Options
-        casing: "linear",
-        iterations: 1,
-        duration: 2000,
+function resorteMovie(){
 
-    });
+    let timing = 10;
+    const elementresrte = document.getElementById('resorte')
 
-    return animation.finished;
+    let id = setInterval(frame,10);
+
+
+    function frame(){
+        if(timing == 500){
+            timing = 10;
+        }else{
+            timing++;
+            elementresrte.style.width = timing+"px";
+        }   
+    }
 }
 
-function displace(){
-    animationResorte().then(()=>{
-        
-    })
+
+function segundoAMilisegundos(segundos){
+    return segundos
 }
