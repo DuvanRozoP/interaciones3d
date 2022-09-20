@@ -1,4 +1,16 @@
+:root{
+    --backgroundFondo: white;
+    --backgroundFondoContenedor: rgb(39, 39, 39);
+    --backgroundInput: white;
+    --backgroundTexto: rgb(39, 39, 39);
+    --backgroundBotones: chartreuse;
+    --backgroundTextoBotones: white;
+}
 
+body{
+    background-color: var(--backgroundFondo);
+    font-family: poppins;
+}
 
 .contenedor-masaResorte{
     width: 600px;
@@ -40,11 +52,102 @@
 
     border-radius: 50%;
     background-color: blueviolet;
-
 }
 
 .prueba{
     width: 50px;
     height: 50px;
     background-color: chartreuse;
+    border-radius: 50%;
+}
+
+.contenedor-oscilacion{
+    height: 500px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--backgroundFondoContenedor);
+    border-radius: 20px;
+    
+}
+
+.contenedor-datos{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-top: 20px;
+}
+
+.input{
+    height: 30px;
+    width: auto;
+
+    border-radius: 10px;
+    border-style: none;
+    outline: none;
+
+    padding-left: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    background-color: var(--backgroundInput);
+    color: var(--backgroundTexto);
+
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.input::placeholder{
+    color: var(--backgroundTexto);
+}
+
+.contenedorBotones{
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+}
+
+.start{
+    width: 150px;
+    height: 40px;
+    
+    border-radius: 10px;
+    outline: none;
+    border-style: none;
+
+    font-size: 20px;
+
+    color: var(--backgroundTextoBotones);
+    background-color: var(--backgroundBotones);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.start:hover{
+    animation: boton;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+    
+
+@keyframes boton {
+    0%{
+        transform: scale(100%);
+        transform: translateY(0px);
+    }
+    100%{
+        transform: scale(200%);
+        transform: translateY(-10px);
+    }
 }

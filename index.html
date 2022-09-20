@@ -6,37 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>modelo3d</title>
 
-    <link rel="stylesheet" href="./src/css/styles.css">
+    <link rel="stylesheet" href="./src/css/styles.css" media="(max-width: 768px)">
   </head>
   <body>
 
-    <section class="contenedor-masaResorte">
+    <!-- <section class="contenedor-masaResorte">
       <div class="tripode" > tripode </div>
       <div id="resorte" class="resorte" > resorte </div>
       <div class="masa"    > masa </div>
-    </section>
+    </section> -->
 
-    <section class="contenedor-datos">
-      <input placeholder="W" id="input_w" type="text">
-      <input placeholder="Gama" class="input_gama" type="text">
-      <input placeholder="Fuerza Externa" class="input_fExterna" type="text">
-      <input placeholder="Frecuencia de la Fuerza" class="input_FrecuenciaF" type="text">
-    </section>
+    
 
-    <section class="contenedor-datos" >
+    <!-- <section class="contenedor-datos" >
       <p class="w"></p>
       <p class="gama"></p>
       <p class="fExterna"></p>
       <p class="FrecuenciaF"></p>
-    </section>
+    </section> -->
 
-    <button id="boton_arrancar" class="start"> Start </button>
     
-    <div class="prueba"></div>
-
+    
+    <section class="contenedor-oscilacion" >
+      <div class="prueba"></div>
+    </section>
+    <section class="contenedor-datos">
+      <input class="input" placeholder="W" id="input_w" type="text">
+      <input class="input" placeholder="Gama" id="input_gama" type="text">
+      <input class="input" placeholder="Fuerza Externa" id="input_fExterna" type="text">
+      <input class="input" placeholder="Frecuencia de la Fuerza" id="input_FrecuenciaF" type="text">
+    </section>
+    <section class="contenedorBotones">
+      <button id="boton_arrancar" class="start">Start</button>
+    </section>
+    
     <!-- <script src="./src/script/three.js"></script> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.js" integrity="sha512-E378bwaeZf1nwXeJGIwTB58A5gPt5jFU3u6aTGja4ZdRFJeo/N/REKnBgNZOZlH6JdnOPO98vg2AnSGaNfCMFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="./src/script/main.mjs"></script>
+    <script type="module" src="./src/script/main.mjs"></script>
   </body>
 </html>
