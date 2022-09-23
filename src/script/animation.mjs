@@ -1,5 +1,40 @@
 var position = ['200px'];
 
+
+
+const operacion = (amplitud,w,fase,tiempo) => {
+  return amplitud * Math.cos(w*tiempo + fase);
+} 
+
+export const oscilacionDatos = (idElement,amplitud,w,fase,time) => {
+  return new Promise ( (resolve,reject) => {
+
+    let positionDato = [];
+    let dato;
+    for (let t = 0; t < time; t += 0.1) {
+      dato = operacion(amplitud,w,fase,t).toFixed(2);
+
+      if ( dato >= amplitud && dato !=  operacion(amplitud,w,fase,t-0.1).toFixed(2)){
+        positionDato.push(dato + 'px');
+      }
+
+      if ( dato <= -amplitud && dato !=  operacion(amplitud,w,fase,t-0.1).toFixed(2)) {
+        positionDato.push(dato + 'px');
+      }
+      
+    }
+    const elementos = idElement;
+    let durat = time * 15;
+    anime({
+      targets: elementos,
+      translateY: positionDato, // -> from '28px' to '100%',
+      duration: durat, // 1000
+      easing: 'linear',
+    });
+  })
+}
+
+
 const obtenerpocion = (t,amplitud,gamma,omega) => {
   return amplitud * Math.exp(gamma * t) * Math.cos(omega * t);
 }
