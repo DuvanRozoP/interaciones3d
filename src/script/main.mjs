@@ -1,6 +1,7 @@
 import { masaResorte, oscilacionDatos } from "./animation.mjs";
+import { grafica } from "./graficas.mjs";
 
-const elementoBoton = document.querySelector('.start');
+const elementoBoton = document.querySelector(".start");
 /*
 elementoBoton.addEventListener('click', () => {
     console.log('oprimiendo boton')
@@ -12,30 +13,57 @@ elementoBoton.addEventListener('click', () => {
 })
 */
 
-document.querySelector('#boton_arrancar').addEventListener('click', () => {
+document.querySelector("#boton_arrancar").addEventListener("click", () => {
+  animationOscilation();
+  showGraphic();
+});
 
-    let amplitud = document.querySelector('#inputA').value;
-    let w = document.querySelector('#inputW').value;
-    let fase = document.querySelector('#inputF').value;
-    let time = document.querySelector('#inputTime').value;
+function animationOscilation() {
+  let amplitud = document.querySelector("#inputA").value;
+  let w = document.querySelector("#inputW").value;
+  let fase = document.querySelector("#inputF").value;
+  let time = document.querySelector("#inputTime").value;
 
-    let piMax = Math.PI/2;
-    console.log(piMax);
+  let piMax = Math.PI / 2;
+  console.log(piMax);
 
-    if (fase > piMax) {
-        alert('φ supero el maximo en valor');
-        return 0;
-    }
+  if (fase > piMax) {
+    alert("φ supero el maximo en valor");
+    return 0;
+  }
 
-    if (amplitud == "" || w == "" || fase == "" || time == "") {
-        alert('Rellene todas las casillas por favor.');
-        return 0;
-    }
+  if (amplitud == "" || w == "" || fase == "" || time == "") {
+    alert("Rellene todas las casillas por favor.");
+    return 0;
+  }
 
-   
-    oscilacionDatos('.prueba',Number(amplitud), Number(w), Number(fase),Number(time)).then( resolve => {
+  oscilacionDatos(
+    ".prueba",
+    Number(amplitud),
+    Number(w),
+    Number(fase),
+    Number(time)
+  )
+    .then((resolve) => {
       console.log(resolve);
-    }).catch( reject => {
-      console.log(reject);
     })
-  })
+    .catch((reject) => {
+      console.log(reject);
+    });
+}
+
+function showGraphic() {
+  let amplitud = document.querySelector("#inputA").value;
+  let w = document.querySelector("#inputW").value;
+  let fase = document.querySelector("#inputF").value;
+  let time = document.querySelector("#inputTime").value;
+ 
+
+  grafica(Number(amplitud), Number(w), Number(fase), Number(time), graf)
+    .then((resolve) => {
+      console.log("funciono showGraphics");
+    })
+    .catch((reject) => {
+      console.log("fallo funcion showGraphics");
+    });
+}

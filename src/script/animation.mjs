@@ -1,11 +1,5 @@
 var position = ['200px'];
 
-
-
-const operacion = (amplitud,w,fase,tiempo) => {
-  return amplitud * Math.cos(w*tiempo + fase);
-} 
-
 export const oscilacionDatos = (idElement,amplitud,w,fase,time) => {
   return new Promise ( (resolve,reject) => {
 
@@ -25,13 +19,55 @@ export const oscilacionDatos = (idElement,amplitud,w,fase,time) => {
     }
     const elementos = idElement;
     let durat = time * 15;
-    anime({
-      targets: elementos,
-      translateY: positionDato, // -> from '28px' to '100%',
-      duration: durat, // 1000
-      easing: 'linear',
-    });
+    animation(elementos,positionDato,durat);
   })
+}
+
+export const ejeX = (amplitud,w,fase,time) => {
+  let datosX = [];
+  let dato = 0;
+  for (let t = 0; t < time; t += 0.1) {
+    dato = operacion(amplitud,w,fase,t).toFixed(2);
+
+    if ( dato >= amplitud && dato !=  operacion(amplitud,w,fase,t-0.1).toFixed(2)){
+      datosX.push(dato);
+    }
+
+    if ( dato <= -amplitud && dato !=  operacion(amplitud,w,fase,t-0.1).toFixed(2)) {
+      datosX.push(dato);
+    }
+    
+  }
+}
+
+export const ejeY = (amplitud,w,fase,time) => {
+  let datosY = [];
+  let dato = 0;
+  for (let t = 0; t < time; t += 0.1) {
+    dato = operacion(amplitud,w,fase,t).toFixed(2);
+
+    if ( dato >= amplitud && dato !=  operacion(amplitud,w,fase,t-0.1).toFixed(2)){
+      datosY.push(t);
+    }
+
+    if ( dato <= -amplitud && dato !=  operacion(amplitud,w,fase,t-0.1).toFixed(2)) {
+      datosY.push(t);
+    }
+    
+  }
+} 
+
+const operacion = (amplitud,w,fase,tiempo) => {
+  return amplitud * Math.cos(w*tiempo + fase);
+} 
+
+const animation = (elementos,positionDato,durat) => {
+  return anime({
+    targets: elementos,
+    translateY: positionDato, // -> from '28px' to '100%',
+    duration: durat, // 1000
+    easing: 'linear',
+  });
 }
 
 
