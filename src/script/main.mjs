@@ -39,7 +39,7 @@ function animationOscilation() {
 
   oscilacionDatos(
     ".prueba",
-    Number(amplitud),
+    Number(amplitud*100),
     Number(w),
     Number(fase),
     Number(time)
